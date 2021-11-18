@@ -4,8 +4,7 @@
   "description": "Testes em javascript com Jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
