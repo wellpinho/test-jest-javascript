@@ -6,20 +6,38 @@ describe('Object to query string', () => {
   it('should create a valid query string when an object is provided', () => {
     const obj = {
       name: 'Wellington',
-      profession: 'developer'
+      profession: 'developer',
     }
 
-    // usado para comparar numero inteiro ou string
     expect(queryString(obj)).toBe(
-      
-      // isso é uma query string passado na barra de endereço
+
       'name=Wellington&profession=developer'
     )
   });
-});
 
-// describe('Query string to Object', () => {
-//   it('should ', () => {
-//     expect()
-//   });
-// });
+  it('should create a valid query string even when an array', () => {
+    const obj = {
+      name: 'Wellington',
+      abilities: ['JS', 'TDD'],
+    }
+
+    expect(queryString(obj)).toBe(
+
+      'name=Wellington&abilities=JS,TDD'
+    )
+  });
+
+  it('should throw an error when an object is passed as value', () => {
+    const obj = {
+      name: 'Wellington',
+      abilities: {
+        first: 'JS',
+        second: 'TDD'
+      },
+    }
+
+    expect(() => {
+      queryString(obj);
+    }).toThrowError();
+  });
+});
