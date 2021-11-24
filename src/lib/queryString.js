@@ -12,7 +12,13 @@ module.exports.queryString = obj =>
 
 module.exports.parse = string => 
   Object.fromEntries(
-    string.split('&').map(
-      item => item.split('=')
-    )
+    string.split('&').map(item => {
+      let [key, value] = item.split('=')
+
+      if (value.indexOf(',') > -1) {
+        value = value.split(',')
+      }
+
+      return [key, value]
+    })
   )
