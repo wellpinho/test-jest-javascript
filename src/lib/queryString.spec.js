@@ -1,4 +1,4 @@
-const queryString = require('./queryString');
+const { queryString } = require('./queryString');
 
 describe.only('Object query string', () => {
   it('should create a valode string when an object...', () => {
