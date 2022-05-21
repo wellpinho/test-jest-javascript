@@ -1,20 +1,25 @@
-const { sum, subtract, mult, division } = require('./calculator')
+const sum = require('./calculator')
 
-describe('Calculator', () => {
+describe('Calculator function sum', () => {
 
   it('should be sum a + b', () => {
     expect(sum(2,2)).toBe(4);
   });
 
-  it('should be subtract a - b', () => {
-    expect(subtract(2,1)).toBe(1)
-  });
+  it('should be sum 2 and 2 even if one of them is a string', () => {
+    /*
+      neste caso tive que faze tratamento na
+      função convertendo string em numero
+    */
+    expect(sum('2','2')).toBe(4)
+  })
 
-  it('should be multiply a * b', () => {
-    expect(mult(50, 5)).toBe(250)
-  });
-
-  it('should be division a / b', () => {
-    expect(division(100, 10)).toBe(10)
-  });
+  it('returns an error if the correct params are not passed in the function', () => {
+    // retorna erro se não for passado dois numeros inteiros para a soma
+    expect(() => sum('', '2')).toThrowError();
+    expect(() => sum([2, 2])).toThrowError();
+    expect(() => sum({})).toThrowError();
+    expect(() => sum()).toThrowError();
+    expect(() => sum()).toThrowError();
+  })
 });

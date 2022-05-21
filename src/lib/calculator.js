@@ -1,20 +1,12 @@
+const sum = (a, b) => {
+  const int1 = parseInt(a, 10)
+  const int2 = parseInt(b, 10)
 
-const calculator = {
-  sum(a, b) {
-    return a + b
-  },
-  
-  subtract(a, b) {
-    return a - b
-  },
-
-  mult(a,b) {
-    return a * b
-  },
-
-  division(a, b) {
-    return a / b
+  if (isNaN(int1) || isNaN(int2)) {
+    throw new Error('Invalid number')
   }
+
+  return int1 + int2
 }
 
-module.exports = calculator
+module.exports = sum
