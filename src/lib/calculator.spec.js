@@ -1,7 +1,7 @@
 const sum = require('./calculator')
 
 describe('Calculator function sum', () => {
-
+  // .toBe é bom para ser suado para verificar numeros inteiros ou strings
   it('should be sum a + b', () => {
     expect(sum(2,2)).toBe(4);
   });
