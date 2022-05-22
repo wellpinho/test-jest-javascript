@@ -6,7 +6,7 @@
 import Product from '../model/productModel';
 
 function sellProduct(product, amount) {
-  product.stock -= amount;
+  product.stock -= 1;
 
   return product;
 }
